@@ -16,6 +16,7 @@ Include: yum
 %post
     export EASYBUILD_VERSION="3.0.1"
     yum -y install gcc
+    yum -y install make
     yum -y install openssl-devel
     yum -y install libibverbs-devel
     yum -y install tar bzip2 gzip unzip
