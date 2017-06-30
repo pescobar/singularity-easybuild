@@ -1,0 +1,86 @@
+# Author: Paulo Souza, Shahzeb Siddiqui
+
+# docker-bootstrap:
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: docker
+From: centos
+Include: yum
+
+
+# eb-gcc:
+%post
+		export EASYBUILD_INSTALLPATH=/app
+
+		# scratch space to build and download source files from eb
+		export EASYBUILD_PREFIX=/scratch
+		mkdir -p $EASYBUILD_PREFIX
+		chmod 777 $EASYBUILD_PREFIX
+
+                mkdir -p /app
+                yum groupinstall -y "Development Tools"
+ 
+                # install csh/tcsh shell
+                yum install tcsh -y
+ 
+                # epel.repo needed for Lmod
+                yum install -y epel-release
+                yum install -y Lmod
+                # vi 
+                yum install -y vim-enhanced
+
+                # References:
+                # https://stackoverflow.com/questions/36327805/how-to-install-gcc-5-3-with-yum-on-centos-7-2
+                # https://gcc.gnu.org/wiki/InstallingGCC
+                yum install -y libmpc-devel mpfr-devel gmp-devel
+                yum install -y zlib-devel*
+                yum install -y curl
+ 
+                # eb dependencies
+                yum install python-devel -y
+                yum install python-setuptools -y
+
+                yum install -y git 
+                export LC_ALL=C
+                yum install -y python-pip
+                pip install --upgrade pip
+                pip install -U setuptools
+                pip install -U easybuild
+                yum install -y git
+                chmod 777 /app
+                useradd singularity
+                . /etc/profile
+                module load lmod
+                # cd `mktemp -d --suffix=.bootstrap`
+                # chmod 777 .
+
+		cd $EASYBUILD_PREFIX
+                runuser singularity -c 'git clone https://github.com/hpcugent/easybuild-easyconfigs.git'
+                cd easybuild-easyconfigs/easybuild/easyconfigs/
+
+		export EASYBUILD_ROBOT_PATHS=$PWD
+
+                # mkdir $PWD/tmp
+                # chmod 777 $PWD/tmp
+
+                runuser singularity -c 'eb b/binutils/binutils-2.26.eb --robot'
+                rm -rf $EASYBUILD_PREFIX
+                chmod 755 /app
+ 
+%runscript
+                eval "$@"
+
+%environment
+    export LC_ALL=C
+    if [ $SHELL == /bin/bash ]; then
+	    . /etc/bashrc
+    fi
+    module use /app/modules/all
+    module load binutils
+
+
+
