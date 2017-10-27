@@ -25,4 +25,6 @@ Include: yum
     yum -y install Lmod
     yum -y install python-setuptools
     yum -y install git
+    yum -y install patch
+    yum -y install GitPython
     pip install easybuild==$EASYBUILD_VERSION
