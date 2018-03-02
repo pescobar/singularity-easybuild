@@ -41,6 +41,8 @@ Include: yum
     yum -y install m4                 # missed 'nettle' dependency
     yum -y install strace             # for debugging
     yum -y install emacs-nox          # for debugging
+    yum clean all
+    rm -fr /var/cache/yum
     pip install --upgrade pip
     pip install easybuild==$EASYBUILD_VERSION
     pip install pycodestyle           # for eb --check-style
