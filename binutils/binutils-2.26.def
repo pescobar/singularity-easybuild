@@ -1,0 +1,62 @@
+# Author: Paulo Souza, Shahzeb Siddiqui
+
+# docker-bootstrap:
+# Copyright (c) 2015-2016, Gregory M. Kurtzer. All rights reserved.
+# 
+# "Singularity" Copyright (c) 2016, The Regents of the University of California,
+# through Lawrence Berkeley National Laboratory (subject to receipt of any
+# required approvals from the U.S. Dept. of Energy).  All rights reserved.
+
+BootStrap: docker
+From: centos
+Include: yum
+
+
+# eb-gcc:
+%post
+		export EASYBUILD_INSTALLPATH=/app
+
+		# scratch space to build and download source files from eb
+		export EASYBUILD_PREFIX=/scratch
+
+		mkdir -p $EASYBUILD_PREFIX
+                mkdir -p $EASYBUILD_INSTALLPATH
+
+                # install csh/tcsh shell
+                # yum install tcsh -y
+ 
+                # epel.repo needed for Lmod and python2-pip
+                yum install -y epel-release
+                yum install -y Lmod
+
+                # eb dependencies
+                yum install python-devel -y
+                yum install python-setuptools -y
+
+                export LC_ALL=C
+                yum install -y python2-pip
+                pip install --upgrade pip
+                pip install -U setuptools
+                pip install -U easybuild
+
+                useradd singularity
+                # . /etc/profile
+                # module load lmod
+
+		
+                runuser singularity -c 'echo $PATH; env | grep EASYBUILD; eb --version; eb --show-config'
+                runuser singularity -c 'eb binutils-2.26.eb --robot'
+ 
+%runscript
+                eval "$@"
+
+%environment
+    export LC_ALL=C
+    if [ $SHELL == /bin/bash ]; then
+	    . /etc/bashrc
+    fi
+    module use /app/modules/all
+    module load binutils
+
+
+

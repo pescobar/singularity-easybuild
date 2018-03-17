@@ -1,0 +1,747 @@
+[root@amrndhl1157 binutils]# singularity create -F -s 2048 /nfs/grid/software/singularity/binutils-2.26.img
+Initializing Singularity image subsystem
+Opening image file: binutils-2.26.img
+Creating 2048MiB image
+Binding image to loop
+Creating file system within image
+Image is done: /nfs/grid/software/singularity/binutils-2.26.img
+[root@amrndhl1157 binutils]# singularity bootstrap /nfs/grid/software/singularity/binutils-2.26.img binutils-2.26.def
+Sanitizing environment
+Building from bootstrap definition recipe
+Adding base Singularity environment to container
+Docker image path: index.docker.io/library/centos:latest
+Cache folder set to /root/.singularity/docker
+Exploding layer: sha256:d5e46245fe40c2d1ab72bfe328de28549b605b2587ab2fa8715f54e3e2de9c5d.tar.gz
+Exploding layer: sha256:6b8bbe197a20c88d065c265cf6f6f8b4e3695f104d1f47f01a1298b3566f27fe.tar.gz
+User defined %runscript found! Taking priority.
+Running post scriptlet
++ export EASYBUILD_INSTALLPATH=/app
++ EASYBUILD_INSTALLPATH=/app
++ export EASYBUILD_PREFIX=/scratch
++ EASYBUILD_PREFIX=/scratch
++ mkdir -p /scratch
++ mkdir -p /app
++ yum install -y epel-release
+Loaded plugins: fastestmirror, ovl
+base                                                                                                                      | 3.6 kB  00:00:00     
+extras                                                                                                                    | 3.4 kB  00:00:00     
+updates                                                                                                                   | 3.4 kB  00:00:00     
+(1/4): base/7/x86_64/group_gz                                                                                             | 155 kB  00:00:00     
+(2/4): extras/7/x86_64/primary_db                                                                                         | 188 kB  00:00:00     
+(3/4): base/7/x86_64/primary_db                                                                                           | 5.6 MB  00:00:02     
+(4/4): updates/7/x86_64/primary_db                                                                                        | 7.7 MB  00:00:03     
+Determining fastest mirrors
+ * base: ftp.linux.ncsu.edu
+ * extras: mirror.pac-12.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-9 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================
+ Package                                Arch                             Version                          Repository                        Size
+=================================================================================================================================================
+Installing:
+ epel-release                           noarch                           7-9                              extras                            14 k
+
+Transaction Summary
+=================================================================================================================================================
+Install  1 Package
+
+Total download size: 14 k
+Installed size: 24 k
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/extras/packages/epel-release-7-9.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for epel-release-7-9.noarch.rpm is not installed
+epel-release-7-9.noarch.rpm                                                                                               |  14 kB  00:00:00     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-3.1611.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-9.noarch                                                                                                       1/1 
+  Verifying  : epel-release-7-9.noarch                                                                                                       1/1 
+
+Installed:
+  epel-release.noarch 0:7-9                                                                                                                      
+
+Complete!
++ yum install -y Lmod
+Loaded plugins: fastestmirror, ovl
+epel/x86_64/metalink                                                                                                      |  14 kB  00:00:00     
+epel                                                                                                                      | 4.3 kB  00:00:00     
+(1/3): epel/x86_64/group_gz                                                                                               | 170 kB  00:00:00     
+(2/3): epel/x86_64/updateinfo                                                                                             | 789 kB  00:00:00     
+(3/3): epel/x86_64/primary_db                                                                                             | 4.8 MB  00:00:01     
+Loading mirror speeds from cached hostfile
+ * base: ftp.linux.ncsu.edu
+ * epel: reflector.westga.edu
+ * extras: mirror.pac-12.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package Lmod.x86_64 0:6.5.1-2.el7 will be installed
+--> Processing Dependency: lua-term for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-posix for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-json for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-filesystem for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: /usr/bin/tclsh for package: Lmod-6.5.1-2.el7.x86_64
+--> Running transaction check
+---> Package lua-filesystem.x86_64 0:1.6.2-2.el7 will be installed
+---> Package lua-json.noarch 0:1.3.2-2.el7 will be installed
+--> Processing Dependency: lua-lpeg >= 0.8.1 for package: lua-json-1.3.2-2.el7.noarch
+---> Package lua-posix.x86_64 0:32-2.el7 will be installed
+--> Processing Dependency: lua-bitop for package: lua-posix-32-2.el7.x86_64
+---> Package lua-term.x86_64 0:0.03-3.el7 will be installed
+---> Package tcl.x86_64 1:8.5.13-8.el7 will be installed
+--> Running transaction check
+---> Package lua-bitop.x86_64 0:1.0.2-3.el7 will be installed
+---> Package lua-lpeg.x86_64 0:0.12-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================
+ Package                                Arch                           Version                                Repository                    Size
+=================================================================================================================================================
+Installing:
+ Lmod                                   x86_64                         6.5.1-2.el7                            epel                         189 k
+Installing for dependencies:
+ lua-bitop                              x86_64                         1.0.2-3.el7                            epel                         7.9 k
+ lua-filesystem                         x86_64                         1.6.2-2.el7                            epel                          28 k
+ lua-json                               noarch                         1.3.2-2.el7                            epel                          23 k
+ lua-lpeg                               x86_64                         0.12-1.el7                             epel                          59 k
+ lua-posix                              x86_64                         32-2.el7                               epel                         116 k
+ lua-term                               x86_64                         0.03-3.el7                             epel                          10 k
+ tcl                                    x86_64                         1:8.5.13-8.el7                         base                         1.9 M
+
+Transaction Summary
+=================================================================================================================================================
+Install  1 Package (+7 Dependent packages)
+
+Total download size: 2.3 M
+Installed size: 6.1 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/epel/packages/Lmod-6.5.1-2.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY  --:--:-- ETA 
+Public key for Lmod-6.5.1-2.el7.x86_64.rpm is not installed
+(1/8): Lmod-6.5.1-2.el7.x86_64.rpm                                                                                        | 189 kB  00:00:00     
+(2/8): lua-bitop-1.0.2-3.el7.x86_64.rpm                                                                                   | 7.9 kB  00:00:00     
+(3/8): lua-filesystem-1.6.2-2.el7.x86_64.rpm                                                                              |  28 kB  00:00:00     
+(4/8): lua-json-1.3.2-2.el7.noarch.rpm                                                                                    |  23 kB  00:00:00     
+(5/8): lua-lpeg-0.12-1.el7.x86_64.rpm                                                                                     |  59 kB  00:00:00     
+(6/8): lua-posix-32-2.el7.x86_64.rpm                                                                                      | 116 kB  00:00:00     
+(7/8): lua-term-0.03-3.el7.x86_64.rpm                                                                                     |  10 kB  00:00:00     
+(8/8): tcl-8.5.13-8.el7.x86_64.rpm                                                                                        | 1.9 MB  00:00:00     
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                            1.1 MB/s | 2.3 MB  00:00:02     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-9.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : lua-lpeg-0.12-1.el7.x86_64                                                                                                    1/8 
+  Installing : lua-json-1.3.2-2.el7.noarch                                                                                                   2/8 
+  Installing : lua-filesystem-1.6.2-2.el7.x86_64                                                                                             3/8 
+  Installing : lua-bitop-1.0.2-3.el7.x86_64                                                                                                  4/8 
+  Installing : lua-posix-32-2.el7.x86_64                                                                                                     5/8 
+  Installing : 1:tcl-8.5.13-8.el7.x86_64                                                                                                     6/8 
+  Installing : lua-term-0.03-3.el7.x86_64                                                                                                    7/8 
+  Installing : Lmod-6.5.1-2.el7.x86_64                                                                                                       8/8 
+  Verifying  : lua-posix-32-2.el7.x86_64                                                                                                     1/8 
+  Verifying  : lua-term-0.03-3.el7.x86_64                                                                                                    2/8 
+  Verifying  : 1:tcl-8.5.13-8.el7.x86_64                                                                                                     3/8 
+  Verifying  : lua-json-1.3.2-2.el7.noarch                                                                                                   4/8 
+  Verifying  : lua-bitop-1.0.2-3.el7.x86_64                                                                                                  5/8 
+  Verifying  : lua-filesystem-1.6.2-2.el7.x86_64                                                                                             6/8 
+  Verifying  : Lmod-6.5.1-2.el7.x86_64                                                                                                       7/8 
+  Verifying  : lua-lpeg-0.12-1.el7.x86_64                                                                                                    8/8 
+
+Installed:
+  Lmod.x86_64 0:6.5.1-2.el7                                                                                                                      
+
+Dependency Installed:
+  lua-bitop.x86_64 0:1.0.2-3.el7     lua-filesystem.x86_64 0:1.6.2-2.el7     lua-json.noarch 0:1.3.2-2.el7     lua-lpeg.x86_64 0:0.12-1.el7    
+  lua-posix.x86_64 0:32-2.el7        lua-term.x86_64 0:0.03-3.el7            tcl.x86_64 1:8.5.13-8.el7        
+
+Complete!
++ yum install python-devel -y
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: ftp.linux.ncsu.edu
+ * epel: mirrors.mit.edu
+ * extras: mirror.pac-12.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python-devel.x86_64 0:2.7.5-48.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================
+ Package                               Arch                            Version                               Repository                     Size
+=================================================================================================================================================
+Installing:
+ python-devel                          x86_64                          2.7.5-48.el7                          base                          393 k
+
+Transaction Summary
+=================================================================================================================================================
+Install  1 Package
+
+Total download size: 393 k
+Installed size: 1.0 M
+Downloading packages:
+python-devel-2.7.5-48.el7.x86_64.rpm                                                                                      | 393 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python-devel-2.7.5-48.el7.x86_64                                                                                              1/1 
+  Verifying  : python-devel-2.7.5-48.el7.x86_64                                                                                              1/1 
+
+Installed:
+  python-devel.x86_64 0:2.7.5-48.el7                                                                                                             
+
+Complete!
++ yum install python-setuptools -y
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: ftp.linux.ncsu.edu
+ * epel: fedora.westmancom.com
+ * extras: mirror.pac-12.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python-setuptools.noarch 0:0.9.8-4.el7 will be installed
+--> Processing Dependency: python-backports-ssl_match_hostname for package: python-setuptools-0.9.8-4.el7.noarch
+--> Running transaction check
+---> Package python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7 will be installed
+--> Processing Dependency: python-backports for package: python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch
+--> Running transaction check
+---> Package python-backports.x86_64 0:1.0-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================
+ Package                                                Arch                      Version                          Repository               Size
+=================================================================================================================================================
+Installing:
+ python-setuptools                                      noarch                    0.9.8-4.el7                      base                    396 k
+Installing for dependencies:
+ python-backports                                       x86_64                    1.0-8.el7                        base                    5.8 k
+ python-backports-ssl_match_hostname                    noarch                    3.4.0.2-4.el7                    base                     12 k
+
+Transaction Summary
+=================================================================================================================================================
+Install  1 Package (+2 Dependent packages)
+
+Total download size: 414 k
+Installed size: 2.0 M
+Downloading packages:
+(1/3): python-backports-1.0-8.el7.x86_64.rpm                                                                              | 5.8 kB  00:00:00     
+(2/3): python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch.rpm                                                       |  12 kB  00:00:00     
+(3/3): python-setuptools-0.9.8-4.el7.noarch.rpm                                                                           | 396 kB  00:00:00     
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                            782 kB/s | 414 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python-backports-1.0-8.el7.x86_64                                                                                             1/3 
+  Installing : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch                                                                      2/3 
+  Installing : python-setuptools-0.9.8-4.el7.noarch                                                                                          3/3 
+  Verifying  : python-setuptools-0.9.8-4.el7.noarch                                                                                          1/3 
+  Verifying  : python-backports-1.0-8.el7.x86_64                                                                                             2/3 
+  Verifying  : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch                                                                      3/3 
+
+Installed:
+  python-setuptools.noarch 0:0.9.8-4.el7                                                                                                         
+
+Dependency Installed:
+  python-backports.x86_64 0:1.0-8.el7                         python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7                        
+
+Complete!
++ export LC_ALL=C
++ LC_ALL=C
++ yum install -y python2-pip
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: ftp.linux.ncsu.edu
+ * epel: kdeforge2.unl.edu
+ * extras: mirror.pac-12.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python2-pip.noarch 0:8.1.2-5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=================================================================================================================================================
+ Package                              Arch                            Version                                Repository                     Size
+=================================================================================================================================================
+Installing:
+ python2-pip                          noarch                          8.1.2-5.el7                            epel                          1.7 M
+
+Transaction Summary
+=================================================================================================================================================
+Install  1 Package
+
+Total download size: 1.7 M
+Installed size: 7.2 M
+Downloading packages:
+python2-pip-8.1.2-5.el7.noarch.rpm                                                                                        | 1.7 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python2-pip-8.1.2-5.el7.noarch                                                                                                1/1 
+  Verifying  : python2-pip-8.1.2-5.el7.noarch                                                                                                1/1 
+
+Installed:
+  python2-pip.noarch 0:8.1.2-5.el7                                                                                                               
+
+Complete!
++ pip install --upgrade pip
+Collecting pip
+  Downloading pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+    100% |################################| 1.3MB 1.1MB/s 
+Installing collected packages: pip
+  Found existing installation: pip 8.1.2
+    Uninstalling pip-8.1.2:
+      Successfully uninstalled pip-8.1.2
+Successfully installed pip-9.0.1
++ pip install -U setuptools
+Collecting setuptools
+  Downloading setuptools-36.0.1-py2.py3-none-any.whl (476kB)
+    100% |################################| 481kB 2.0MB/s 
+Installing collected packages: setuptools
+  Found existing installation: setuptools 0.9.8
+    Uninstalling setuptools-0.9.8:
+      Successfully uninstalled setuptools-0.9.8
+Successfully installed setuptools-36.0.1
++ pip install -U easybuild
+Collecting easybuild
+  Downloading easybuild-3.3.0.tar.gz
+Collecting easybuild-easyconfigs==3.3.0 (from easybuild)
+  Downloading easybuild-easyconfigs-3.3.0.tar.gz (1.8MB)
+    100% |################################| 1.8MB 725kB/s 
+Collecting easybuild-easyblocks==3.3.0 (from easybuild)
+  Downloading easybuild-easyblocks-3.3.0.tar.gz (293kB)
+    100% |################################| 296kB 3.3MB/s 
+Collecting easybuild-framework==3.3.0 (from easybuild)
+  Downloading easybuild-framework-3.3.0.tar.gz (1.5MB)
+    100% |################################| 1.5MB 898kB/s 
+Requirement already up-to-date: setuptools>=0.6 in /usr/lib/python2.7/site-packages (from easybuild-easyblocks==3.3.0->easybuild)
+Collecting vsc-install>=0.9.19 (from easybuild-framework==3.3.0->easybuild)
+  Downloading vsc-install-0.10.26.tar.gz (56kB)
+    100% |################################| 61kB 8.6MB/s 
+Collecting vsc-base>=2.5.8 (from easybuild-framework==3.3.0->easybuild)
+  Downloading vsc-base-2.5.8.tar.gz (101kB)
+    100% |################################| 102kB 8.7MB/s 
+Installing collected packages: vsc-install, vsc-base, easybuild-framework, easybuild-easyblocks, easybuild-easyconfigs, easybuild
+  Running setup.py install for vsc-install ... done
+  Running setup.py install for vsc-base ... done
+  Running setup.py install for easybuild-framework ... done
+  Running setup.py install for easybuild-easyblocks ... done
+  Running setup.py install for easybuild-easyconfigs ... done
+  Running setup.py install for easybuild ... done
+Successfully installed easybuild-3.3.0 easybuild-easyblocks-3.3.0 easybuild-easyconfigs-3.3.0 easybuild-framework-3.3.0 vsc-base-2.5.8 vsc-install-0.10.26
++ useradd singularity
++ runuser singularity -c 'eb --version'
+ERROR: python not available in $PATH?
+ABORT: Aborting with RETVAL=255
+[root@amrndhl1157 binutils]# singularity create -F -s 2048 /nfs/grid/software/singularity/binutils-2.26.img
+Initializing Singularity image subsystem
+Opening image file: binutils-2.26.img
+Creating 2048MiB image
+Binding image to loop
+Creating file system within image
+Image is done: /nfs/grid/software/singularity/binutils-2.26.img
+[root@amrndhl1157 binutils]# vi binutils-2.26.def 
+[root@amrndhl1157 binutils]# singularity create -F -s 2048 /nfs/grid/software/singularity/binutils-2.26.img
+Initializing Singularity image subsystem
+Opening image file: binutils-2.26.img
+Creating 2048MiB image
+Binding image to loop
+Creating file system within image
+Image is done: /nfs/grid/software/singularity/binutils-2.26.img
+[root@amrndhl1157 binutils]# singularity bootstrap /nfs/grid/software/singularity/binutils-2.26.img binutils-2.26.def
+Sanitizing environment
+Building from bootstrap definition recipe
+Adding base Singularity environment to container
+Docker image path: index.docker.io/library/centos:latest
+Cache folder set to /root/.singularity/docker
+Exploding layer: sha256:d5e46245fe40c2d1ab72bfe328de28549b605b2587ab2fa8715f54e3e2de9c5d.tar.gz
+Exploding layer: sha256:6b8bbe197a20c88d065c265cf6f6f8b4e3695f104d1f47f01a1298b3566f27fe.tar.gz
+User defined %runscript found! Taking priority.
+Running post scriptlet
++ export EASYBUILD_INSTALLPATH=/app
++ EASYBUILD_INSTALLPATH=/app
++ export EASYBUILD_PREFIX=/scratch
++ EASYBUILD_PREFIX=/scratch
++ mkdir -p /scratch
++ mkdir -p /app
++ yum install -y epel-release
+Loaded plugins: fastestmirror, ovl
+base                                                                                                                     | 3.6 kB  00:00:00     
+extras                                                                                                                   | 3.4 kB  00:00:00     
+updates                                                                                                                  | 3.4 kB  00:00:00     
+(1/4): base/7/x86_64/group_gz                                                                                            | 155 kB  00:00:00     
+(2/4): extras/7/x86_64/primary_db                                                                                        | 188 kB  00:00:00     
+(3/4): base/7/x86_64/primary_db                                                                                          | 5.6 MB  00:00:02     
+(4/4): updates/7/x86_64/primary_db                                                                                       | 7.7 MB  00:00:03     
+Determining fastest mirrors
+ * base: mirror.solarvps.com
+ * extras: mirror.team-cymru.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package epel-release.noarch 0:7-9 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                                Arch                             Version                         Repository                        Size
+================================================================================================================================================
+Installing:
+ epel-release                           noarch                           7-9                             extras                            14 k
+
+Transaction Summary
+================================================================================================================================================
+Install  1 Package
+
+Total download size: 14 k
+Installed size: 24 k
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/extras/packages/epel-release-7-9.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+Public key for epel-release-7-9.noarch.rpm is not installed
+epel-release-7-9.noarch.rpm                                                                                              |  14 kB  00:00:00     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Importing GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-3.1611.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : epel-release-7-9.noarch                                                                                                      1/1 
+  Verifying  : epel-release-7-9.noarch                                                                                                      1/1 
+
+Installed:
+  epel-release.noarch 0:7-9                                                                                                                     
+
+Complete!
++ yum install -y Lmod
+Loaded plugins: fastestmirror, ovl
+epel/x86_64/metalink                                                                                                     |  14 kB  00:00:00     
+epel                                                                                                                     | 4.3 kB  00:00:00     
+(1/3): epel/x86_64/group_gz                                                                                              | 170 kB  00:00:00     
+(2/3): epel/x86_64/updateinfo                                                                                            | 789 kB  00:00:01     
+(3/3): epel/x86_64/primary_db                                                                                            | 4.8 MB  00:00:02     
+Loading mirror speeds from cached hostfile
+ * base: mirror.solarvps.com
+ * epel: mirror.cs.princeton.edu
+ * extras: mirror.team-cymru.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package Lmod.x86_64 0:6.5.1-2.el7 will be installed
+--> Processing Dependency: lua-term for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-posix for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-json for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: lua-filesystem for package: Lmod-6.5.1-2.el7.x86_64
+--> Processing Dependency: /usr/bin/tclsh for package: Lmod-6.5.1-2.el7.x86_64
+--> Running transaction check
+---> Package lua-filesystem.x86_64 0:1.6.2-2.el7 will be installed
+---> Package lua-json.noarch 0:1.3.2-2.el7 will be installed
+--> Processing Dependency: lua-lpeg >= 0.8.1 for package: lua-json-1.3.2-2.el7.noarch
+---> Package lua-posix.x86_64 0:32-2.el7 will be installed
+--> Processing Dependency: lua-bitop for package: lua-posix-32-2.el7.x86_64
+---> Package lua-term.x86_64 0:0.03-3.el7 will be installed
+---> Package tcl.x86_64 1:8.5.13-8.el7 will be installed
+--> Running transaction check
+---> Package lua-bitop.x86_64 0:1.0.2-3.el7 will be installed
+---> Package lua-lpeg.x86_64 0:0.12-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                               Arch                          Version                                  Repository                   Size
+================================================================================================================================================
+Installing:
+ Lmod                                  x86_64                        6.5.1-2.el7                              epel                        189 k
+Installing for dependencies:
+ lua-bitop                             x86_64                        1.0.2-3.el7                              epel                        7.9 k
+ lua-filesystem                        x86_64                        1.6.2-2.el7                              epel                         28 k
+ lua-json                              noarch                        1.3.2-2.el7                              epel                         23 k
+ lua-lpeg                              x86_64                        0.12-1.el7                               epel                         59 k
+ lua-posix                             x86_64                        32-2.el7                                 epel                        116 k
+ lua-term                              x86_64                        0.03-3.el7                               epel                         10 k
+ tcl                                   x86_64                        1:8.5.13-8.el7                           base                        1.9 M
+
+Transaction Summary
+================================================================================================================================================
+Install  1 Package (+7 Dependent packages)
+
+Total download size: 2.3 M
+Installed size: 6.1 M
+Downloading packages:
+warning: /var/cache/yum/x86_64/7/epel/packages/lua-json-1.3.2-2.el7.noarch.rpm: Header V3 RSA/SHA256 Signature, key ID 352c64e5: NOKEY
+Public key for lua-json-1.3.2-2.el7.noarch.rpm is not installed
+(1/8): lua-json-1.3.2-2.el7.noarch.rpm                                                                                   |  23 kB  00:00:00     
+(2/8): lua-bitop-1.0.2-3.el7.x86_64.rpm                                                                                  | 7.9 kB  00:00:00     
+(3/8): lua-lpeg-0.12-1.el7.x86_64.rpm                                                                                    |  59 kB  00:00:00     
+(4/8): lua-term-0.03-3.el7.x86_64.rpm                                                                                    |  10 kB  00:00:00     
+(5/8): Lmod-6.5.1-2.el7.x86_64.rpm                                                                                       | 189 kB  00:00:00     
+(6/8): lua-posix-32-2.el7.x86_64.rpm                                                                                     | 116 kB  00:00:00     
+(7/8): lua-filesystem-1.6.2-2.el7.x86_64.rpm                                                                             |  28 kB  00:00:00     
+(8/8): tcl-8.5.13-8.el7.x86_64.rpm                                                                                       | 1.9 MB  00:00:00     
+------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                           2.0 MB/s | 2.3 MB  00:00:01     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Importing GPG key 0x352C64E5:
+ Userid     : "Fedora EPEL (7) <epel@fedoraproject.org>"
+ Fingerprint: 91e9 7d7c 4a5e 96f1 7f3e 888f 6a2f aea2 352c 64e5
+ Package    : epel-release-7-9.noarch (@extras)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : lua-lpeg-0.12-1.el7.x86_64                                                                                                   1/8 
+  Installing : lua-json-1.3.2-2.el7.noarch                                                                                                  2/8 
+  Installing : lua-filesystem-1.6.2-2.el7.x86_64                                                                                            3/8 
+  Installing : lua-bitop-1.0.2-3.el7.x86_64                                                                                                 4/8 
+  Installing : lua-posix-32-2.el7.x86_64                                                                                                    5/8 
+  Installing : 1:tcl-8.5.13-8.el7.x86_64                                                                                                    6/8 
+  Installing : lua-term-0.03-3.el7.x86_64                                                                                                   7/8 
+  Installing : Lmod-6.5.1-2.el7.x86_64                                                                                                      8/8 
+  Verifying  : lua-posix-32-2.el7.x86_64                                                                                                    1/8 
+  Verifying  : lua-term-0.03-3.el7.x86_64                                                                                                   2/8 
+  Verifying  : 1:tcl-8.5.13-8.el7.x86_64                                                                                                    3/8 
+  Verifying  : lua-json-1.3.2-2.el7.noarch                                                                                                  4/8 
+  Verifying  : lua-bitop-1.0.2-3.el7.x86_64                                                                                                 5/8 
+  Verifying  : lua-filesystem-1.6.2-2.el7.x86_64                                                                                            6/8 
+  Verifying  : Lmod-6.5.1-2.el7.x86_64                                                                                                      7/8 
+  Verifying  : lua-lpeg-0.12-1.el7.x86_64                                                                                                   8/8 
+
+Installed:
+  Lmod.x86_64 0:6.5.1-2.el7                                                                                                                     
+
+Dependency Installed:
+  lua-bitop.x86_64 0:1.0.2-3.el7     lua-filesystem.x86_64 0:1.6.2-2.el7     lua-json.noarch 0:1.3.2-2.el7     lua-lpeg.x86_64 0:0.12-1.el7    
+  lua-posix.x86_64 0:32-2.el7        lua-term.x86_64 0:0.03-3.el7            tcl.x86_64 1:8.5.13-8.el7        
+
+Complete!
++ yum install python-devel -y
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.solarvps.com
+ * epel: archive.linux.duke.edu
+ * extras: mirror.team-cymru.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python-devel.x86_64 0:2.7.5-48.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                              Arch                           Version                                 Repository                    Size
+================================================================================================================================================
+Installing:
+ python-devel                         x86_64                         2.7.5-48.el7                            base                         393 k
+
+Transaction Summary
+================================================================================================================================================
+Install  1 Package
+
+Total download size: 393 k
+Installed size: 1.0 M
+Downloading packages:
+python-devel-2.7.5-48.el7.x86_64.rpm                                                                                     | 393 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python-devel-2.7.5-48.el7.x86_64                                                                                             1/1 
+  Verifying  : python-devel-2.7.5-48.el7.x86_64                                                                                             1/1 
+
+Installed:
+  python-devel.x86_64 0:2.7.5-48.el7                                                                                                            
+
+Complete!
++ yum install python-setuptools -y
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.solarvps.com
+ * epel: fedora.mirrors.pair.com
+ * extras: mirror.team-cymru.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python-setuptools.noarch 0:0.9.8-4.el7 will be installed
+--> Processing Dependency: python-backports-ssl_match_hostname for package: python-setuptools-0.9.8-4.el7.noarch
+--> Running transaction check
+---> Package python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7 will be installed
+--> Processing Dependency: python-backports for package: python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch
+--> Running transaction check
+---> Package python-backports.x86_64 0:1.0-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                                               Arch                     Version                            Repository              Size
+================================================================================================================================================
+Installing:
+ python-setuptools                                     noarch                   0.9.8-4.el7                        base                   396 k
+Installing for dependencies:
+ python-backports                                      x86_64                   1.0-8.el7                          base                   5.8 k
+ python-backports-ssl_match_hostname                   noarch                   3.4.0.2-4.el7                      base                    12 k
+
+Transaction Summary
+================================================================================================================================================
+Install  1 Package (+2 Dependent packages)
+
+Total download size: 414 k
+Installed size: 2.0 M
+Downloading packages:
+(1/3): python-backports-1.0-8.el7.x86_64.rpm                                                                             | 5.8 kB  00:00:00     
+(2/3): python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch.rpm                                                      |  12 kB  00:00:00     
+(3/3): python-setuptools-0.9.8-4.el7.noarch.rpm                                                                          | 396 kB  00:00:00     
+------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                           943 kB/s | 414 kB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python-backports-1.0-8.el7.x86_64                                                                                            1/3 
+  Installing : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch                                                                     2/3 
+  Installing : python-setuptools-0.9.8-4.el7.noarch                                                                                         3/3 
+  Verifying  : python-setuptools-0.9.8-4.el7.noarch                                                                                         1/3 
+  Verifying  : python-backports-1.0-8.el7.x86_64                                                                                            2/3 
+  Verifying  : python-backports-ssl_match_hostname-3.4.0.2-4.el7.noarch                                                                     3/3 
+
+Installed:
+  python-setuptools.noarch 0:0.9.8-4.el7                                                                                                        
+
+Dependency Installed:
+  python-backports.x86_64 0:1.0-8.el7                         python-backports-ssl_match_hostname.noarch 0:3.4.0.2-4.el7                        
+
+Complete!
++ export LC_ALL=C
++ LC_ALL=C
++ yum install -y python2-pip
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.solarvps.com
+ * epel: fedora-epel.mirrors.tds.net
+ * extras: mirror.team-cymru.org
+ * updates: mirrors.usc.edu
+Resolving Dependencies
+--> Running transaction check
+---> Package python2-pip.noarch 0:8.1.2-5.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================================================================================
+ Package                              Arch                            Version                               Repository                     Size
+================================================================================================================================================
+Installing:
+ python2-pip                          noarch                          8.1.2-5.el7                           epel                          1.7 M
+
+Transaction Summary
+================================================================================================================================================
+Install  1 Package
+
+Total download size: 1.7 M
+Installed size: 7.2 M
+Downloading packages:
+python2-pip-8.1.2-5.el7.noarch.rpm                                                                                       | 1.7 MB  00:00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : python2-pip-8.1.2-5.el7.noarch                                                                                               1/1 
+  Verifying  : python2-pip-8.1.2-5.el7.noarch                                                                                               1/1 
+
+Installed:
+  python2-pip.noarch 0:8.1.2-5.el7                                                                                                              
+
+Complete!
++ pip install --upgrade pip
+Collecting pip
+  Downloading pip-9.0.1-py2.py3-none-any.whl (1.3MB)
+    100% |################################| 1.3MB 898kB/s 
+Installing collected packages: pip
+  Found existing installation: pip 8.1.2
+    Uninstalling pip-8.1.2:
+      Successfully uninstalled pip-8.1.2
+Successfully installed pip-9.0.1
++ pip install -U setuptools
+Collecting setuptools
+  Downloading setuptools-36.0.1-py2.py3-none-any.whl (476kB)
+    100% |################################| 481kB 2.1MB/s 
+Installing collected packages: setuptools
+  Found existing installation: setuptools 0.9.8
+    Uninstalling setuptools-0.9.8:
+      Successfully uninstalled setuptools-0.9.8
+Successfully installed setuptools-36.0.1
++ pip install -U easybuild
+Collecting easybuild
+  Downloading easybuild-3.3.0.tar.gz
+Collecting easybuild-easyconfigs==3.3.0 (from easybuild)
+  Downloading easybuild-easyconfigs-3.3.0.tar.gz (1.8MB)
+    100% |################################| 1.8MB 725kB/s 
+Collecting easybuild-easyblocks==3.3.0 (from easybuild)
+  Downloading easybuild-easyblocks-3.3.0.tar.gz (293kB)
+    100% |################################| 296kB 3.2MB/s 
+Collecting easybuild-framework==3.3.0 (from easybuild)
+  Downloading easybuild-framework-3.3.0.tar.gz (1.5MB)
+    100% |################################| 1.5MB 915kB/s 
+Requirement already up-to-date: setuptools>=0.6 in /usr/lib/python2.7/site-packages (from easybuild-easyblocks==3.3.0->easybuild)
+Collecting vsc-install>=0.9.19 (from easybuild-framework==3.3.0->easybuild)
+  Downloading vsc-install-0.10.26.tar.gz (56kB)
+    100% |################################| 61kB 8.0MB/s 
+Collecting vsc-base>=2.5.8 (from easybuild-framework==3.3.0->easybuild)
+  Downloading vsc-base-2.5.8.tar.gz (101kB)
+    100% |################################| 102kB 7.4MB/s 
+Installing collected packages: vsc-install, vsc-base, easybuild-framework, easybuild-easyblocks, easybuild-easyconfigs, easybuild
+  Running setup.py install for vsc-install ... done
+  Running setup.py install for vsc-base ... done
+  Running setup.py install for easybuild-framework ... done
+  Running setup.py install for easybuild-easyblocks ... done
+  Running setup.py install for easybuild-easyconfigs ... done
+  Running setup.py install for easybuild ... done
+Successfully installed easybuild-3.3.0 easybuild-easyblocks-3.3.0 easybuild-easyconfigs-3.3.0 easybuild-framework-3.3.0 vsc-base-2.5.8 vsc-install-0.10.26
++ useradd singularity
++ runuser singularity -c 'echo $PATH; env | grep EASYBUILD; eb --version; eb --show-config'
+/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+EASYBUILD_INSTALLPATH=/app
+EASYBUILD_PREFIX=/scratch
+ERROR: python not available in $PATH?
+ERROR: python not available in $PATH?
+ABORT: Aborting with RETVAL=255
+
